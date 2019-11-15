@@ -1,4 +1,4 @@
-image: "registry.gitlab.com/querl.dox/js/build:latest"
+image: "registry.gitlab.com/querl.dox/clarence-daniels-jr/book/notes_to_the_future/build:master"
 
 cache:
   paths:
@@ -147,7 +147,6 @@ html-minifier:
     expire_in: "1 day"
     paths:
       - $DEV_DIR
-  image: "registry.gitlab.com/querl.dox/python/build:jinja2"
   stage: build
   script:
     - jinja2 $J2_IN $J2_DATA --outfile=$J2_OUT --format=$J2_FORMAT
