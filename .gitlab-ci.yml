@@ -18,9 +18,8 @@ variables:
   J2_DATA: "data/blog.yaml"
   J2_OUT: "$DEV_DIR/index.html"
   J2_FORMAT: "yaml"
-  HTML_MIN_OUT: "$DEV_DIR/min-index.html"
-
-  
+  HTML_MIN_OUT: "$PUB_DIR/index.html"
+ 
 before_script:
   - apk add git
   - git config --global credential.helper cache
@@ -87,11 +86,6 @@ code_review:
 
 pages:
   #when: manual
-  variables:
-    J2_IN: "src/templates/index.html"
-    J2_DATA: "data/blog.yaml"
-    J2_OUT: "$PUB_DIR/index.html"
-    J2_FORMAT: "yaml"
   artifacts:
     name: "pages"
     expire_in: "1 day"
@@ -100,11 +94,14 @@ pages:
   cache:
     paths:
       - ./vendor
-  image: "registry.gitlab.com/querl.dox/python/build:jinja2"
   stage: deploy
   script: 
     - cp -R ./assets $PUB_DIR
     - jinja2 $J2_IN $J2_DATA --outfile=$J2_OUT --format=$J2_FORMAT
+    - jinja2 $J2_IN $J2_DATA --outfile=$J2_OUT --format=$J2_FORMAT
+    - du -h -a $DEV_DIR 
+    - html-minifier  --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype --minify-css true --minify-js true --file-ext html --input-dir $DEV_DIR  --output-dir $PUB_DIR
+    - du -h -a $PUB_DIR
   only:
     - master
 
@@ -150,18 +147,14 @@ html-minifier:
     J2_OUT: "$DEV_DIR/index.html"
     J2_FORMAT: "yaml"
     HTML_MIN_OUT: "$PUB_DIR/index.html"
-
   artifacts:
     name: "book"
     expire_in: "1 day"
     paths:
-      - $DEV_DIR
+      - $PUB_DIR
   stage: build
   script:
     - jinja2 $J2_IN $J2_DATA --outfile=$J2_OUT --format=$J2_FORMAT
     - du -h -a $DEV_DIR 
     - html-minifier  --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype --minify-css true --minify-js true --file-ext html --input-dir $DEV_DIR  --output-dir $PUB_DIR
     - du -h -a $PUB_DIR
-
-    #--output-dir $DEV_DIR/min
-    #--output $PUB_DIR/min.html
