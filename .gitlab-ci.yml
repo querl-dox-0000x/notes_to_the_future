@@ -153,7 +153,5 @@ html-minifier:
   script:
     - jinja2 $J2_IN $J2_DATA --outfile=$J2_OUT --format=$J2_FORMAT
     - du -h -a $J2_OUT 
-    - html-minifier --help
-    - ls -a -R "$DEV_DIR"
-    - html-minifier --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype --minify-css true --minify-js true --output $HTML_MIN_OUT $J2_OU
+    - html-minifier --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype --minify-css true --minify-js true --output $HTML_MIN_OUT $J2_OUT
     - du -h -a $J2_OUT 
