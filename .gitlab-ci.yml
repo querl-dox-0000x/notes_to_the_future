@@ -18,6 +18,8 @@ variables:
   J2_DATA: "data/blog.yaml"
   J2_OUT: "$DEV_DIR/index.html"
   J2_FORMAT: "yaml"
+  HTML_MIN_OUT: "$DEV_DIR/min-index.html"
+
   
 before_script:
   - apk add git
@@ -153,7 +155,5 @@ html-minifier:
     - du -h -a $J2_OUT 
     - html-minifier --help
     - ls -a -R "$DEV_DIR"
-    - html-minifier --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype --minify-css true --minify-js true
-
-    
-
+    - html-minifier --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype --minify-css true --minify-js true --output $HTML_MIN_OUT $J2_OU
+    - du -h -a $J2_OUT 
