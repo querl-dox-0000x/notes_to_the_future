@@ -144,6 +144,13 @@ asset_download:
 
 html-minifier:
   when: manual
+  variables:
+    J2_IN: "src/templates/index.html"
+    J2_DATA: "data/blog.yaml"
+    J2_OUT: "$DEV_DIR/index.html"
+    J2_FORMAT: "yaml"
+    HTML_MIN_OUT: "$PUB_DIR/index.html"
+
   artifacts:
     name: "book"
     expire_in: "1 day"
@@ -152,8 +159,9 @@ html-minifier:
   stage: build
   script:
     - jinja2 $J2_IN $J2_DATA --outfile=$J2_OUT --format=$J2_FORMAT
-    - du -h -a $J2_OUT 
-    - html-minifier --file-ext html --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype --minify-css true --minify-js true --input-dir $DEV_DIR  --output $DEV_DIR/min.html
-    - du -h -a $DEV_DIR
+    - du -h -a $DEV_DIR 
+    - html-minifier  --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype --minify-css true --minify-js true --file-ext html --input-dir $DEV_DIR  --output-dir $PUB_DIR
+    - du -h -a $PUB_DIR
 
     #--output-dir $DEV_DIR/min
+    #--output $PUB_DIR/min.html
