@@ -1,8 +1,14 @@
+primal link
 https://querl.dox.gitlab.io/clarence-daniels-jr/book/notes_to_the_future/notes/
 
+secondary link
 https://sites.google.com/a/goatech.net/book-notes/home
 
-https://drive.google.com/open?id=169w1WL9TiCEK9HFKcb_TvmwnQFYNDRC8
+gitlab repo
+https://gitlab.com/querl.dox/clarence-daniels-jr/book/notes_to_the_future/notes
+
+github repo
+https://github.com/querl-dox-0000x/notes_to_the_future
 
 # NotesTo The Future
 ## True Tales In The Life Of Clarence Daniels Jr
