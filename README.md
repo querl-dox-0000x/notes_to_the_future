@@ -2,6 +2,8 @@ https://querl.dox.gitlab.io/clarence-daniels-jr/book/notes_to_the_future/notes/
 
 https://sites.google.com/a/goatech.net/book-notes/home
 
+https://drive.google.com/open?id=169w1WL9TiCEK9HFKcb_TvmwnQFYNDRC8
+
 # NotesTo The Future
 ## True Tales In The Life Of Clarence Daniels Jr
 ### By: Clarence Daniels Jr.
