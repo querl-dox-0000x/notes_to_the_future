@@ -2,7 +2,7 @@ primal link
 https://querl.dox.gitlab.io/clarence-daniels-jr/book/notes_to_the_future/notes/
 
 secondary link
-https://sites.google.com/a/goatech.net/book-notes/home
+https://querl-dox-0000x.github.io/notes_to_the_future/gh-pages/
 
 gitlab repo
 https://gitlab.com/querl.dox/clarence-daniels-jr/book/notes_to_the_future/notes
