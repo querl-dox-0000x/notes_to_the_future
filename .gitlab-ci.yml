@@ -98,11 +98,9 @@ pages:
   script: 
     - cp -R ./assets $PUB_DIR
     - jinja2 $J2_IN $J2_DATA --outfile=$J2_OUT --format=$J2_FORMAT
-    - jinja2 $J2_IN $J2_DATA --outfile=$J2_OUT --format=$J2_FORMAT
-    - du -h -a $DEV_DIR 
-    - html-minifier  --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype --minify-css true --minify-js true --file-ext html --input-dir $DEV_DIR  --output-dir $PUB_DIR
-    - du -h -a $PUB_DIR
-    - cp -R $PUB_DIR ./gh-pages
+    #- du -h -a $DEV_DIR 
+    #- html-minifier  --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype --minify-css true --minify-js true --file-ext html --input-dir $DEV_DIR  --output-dir $PUB_DIR
+    #- du -h -a $PUB_DIR
   only:
     - master
 
