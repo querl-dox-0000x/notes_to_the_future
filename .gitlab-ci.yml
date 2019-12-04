@@ -91,6 +91,7 @@ pages:
     expire_in: "1 day"
     paths:
       - public
+  image: "registry.gitlab.com/querl.dox/python/build:jinja2"
   cache:
     paths:
       - ./vendor
